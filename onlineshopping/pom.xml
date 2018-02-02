@@ -7,6 +7,11 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>onlineshopping Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  <properties>
+  <javaee-version>7.0</javaee-version>
+  </properties>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -14,6 +19,14 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+    <groupId>javax</groupId>
+    <artifactId>javaee-api</artifactId>
+    <version>${javaee-version}</version>
+    <scope>provided</scope>
+	</dependency>
+    
   </dependencies>
   <build>
     <finalName>onlineshopping</finalName>
