@@ -13,7 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
      <spring.version>4.3.6.RELEASE</spring.version>
-     <hibernate.version>5.2.7.Final</hibernate.version>
+     <hibernate.version>5.2.8.Final</hibernate.version>
   </properties>
 
   <dependencies>
@@ -42,6 +42,13 @@
     <artifactId>hibernate-core</artifactId>
     <version>${hibernate.version}</version>
 </dependency>
+
+<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>5.1.6</version>
+	</dependency>
+  
 
   
     <dependency>
