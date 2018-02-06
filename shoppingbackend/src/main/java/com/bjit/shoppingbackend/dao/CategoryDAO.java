@@ -13,7 +13,7 @@ public interface CategoryDAO {
 	List<Category> list();
 	boolean add(Category category);
 	boolean update(Category category);
-	boolean delete(Category category);
+	//boolean delete(Category category);
 	
 	
 }

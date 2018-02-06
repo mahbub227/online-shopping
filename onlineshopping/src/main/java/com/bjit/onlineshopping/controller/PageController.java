@@ -63,7 +63,7 @@ public class PageController {
 		category=categoryDAO.get(id);
 		
 		
-		mv.addObject("title",category.getName());
+		mv.addObject("title",category.getCategoryName());
 	
 		mv.addObject("categories",categoryDAO.list());
 		

@@ -1,8 +1,8 @@
 package com.bjit.shoppingbackend.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,43 +16,66 @@ public class Category implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public String getImageURL() {
-		return imageURL;
-	}
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
-	}
-	public boolean isActive() {
-		return active;
-	}
-	public void setActive(boolean active) {
-		this.active = active;
-	}
+
 	
 	
-	
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public int getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(int parentId) {
+		this.parentId = parentId;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL
-				+ ", active=" + active + "]";
+		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", parentId=" + parentId
+				+ ", image=" + image + ", createdOn=" + createdOn + ", updatedOn="
+				+ updatedOn + "]";
 	}
 
 
@@ -62,17 +85,16 @@ public class Category implements Serializable {
 	 * */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int categoryId;
 	
-	private String name;
+	private String categoryName;
 	
-	private String description;
+	private int parentId;
 	
-	@Column(name = "image_url")
-	private String imageURL;
+	private String image;
 	
-	@Column(name = "is_active")
-	private boolean active = true;
+	Date createdOn = new Date();
 	
+	Date updatedOn = new Date();
 	
 }
