@@ -55,12 +55,12 @@ public class PageController {
 		return mv;
 	}
 	
-	@RequestMapping(value= "/show/category/{id}/products")
-	public ModelAndView showAllCategoryProducts(@PathVariable("id") int id) {
+	@RequestMapping(value= "/show/category/{categoryId}/products")
+	public ModelAndView showAllCategoryProducts(@PathVariable("categoryId") int categoryId) {
 		ModelAndView mv= new ModelAndView("page");
 		
 		Category category=null;
-		category=categoryDAO.get(id);
+		category=categoryDAO.get(categoryId);
 		
 		
 		mv.addObject("title",category.getCategoryName());
