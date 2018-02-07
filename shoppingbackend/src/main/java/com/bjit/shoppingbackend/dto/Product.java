@@ -19,12 +19,12 @@ public class Product implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
 	private String productName;
-	@JsonIgnore
 	private int quantity;
 	@JsonIgnore
 	private boolean active;
 	private double originalPrice;
 	private double discountPrice;
+	@JsonIgnore
 	private String description;
 	@JsonIgnore
 	private int categoryId;
