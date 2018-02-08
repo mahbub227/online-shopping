@@ -1,6 +1,8 @@
 package com.bjit.onlineshopping.controller;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,8 @@ import com.bjit.shoppingbackend.dto.Product;
 @Controller
 public class PageController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+ 	
 	@Autowired
 	private CategoryDAO categoryDAO;
 	@Autowired
@@ -24,6 +28,9 @@ public class PageController {
 	public ModelAndView index() {
 		ModelAndView mv= new ModelAndView("page");
 		mv.addObject("title","Home");
+		
+		logger.info("Inside Page Controller Index Method==info");
+		logger.debug("Inside Page Controller Index Method==debug");
 	
 		mv.addObject("categories",categoryDAO.list());
 		
