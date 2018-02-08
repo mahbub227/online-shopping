@@ -69,6 +69,7 @@
 						<thead>
 						
 							<tr>
+								<th></th>
 								<th>Name</th>
 								<th>Actual Price</th>
 								<th>Discount Price</th>

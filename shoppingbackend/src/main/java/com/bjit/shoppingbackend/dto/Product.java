@@ -20,6 +20,8 @@ public class Product implements Serializable {
 	private int productId;
 	private String productName;
 	private int quantity;
+	private int views;
+	private String image;
 	@JsonIgnore
 	private boolean active;
 	private double originalPrice;
@@ -32,6 +34,15 @@ public class Product implements Serializable {
 	Date createdOn = new Date();
 	@JsonIgnore
 	Date updatedOn = new Date();
+	
+	
+	public int getViews() {
+		return views;
+	}
+	public void setViews(int views) {
+		this.views = views;
+	}
+	
 	public int getProductId() {
 		return productId;
 	}
@@ -40,6 +51,12 @@ public class Product implements Serializable {
 	}
 	public String getProductName() {
 		return productName;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
@@ -95,9 +112,9 @@ public class Product implements Serializable {
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", quantity=" + quantity
-				+ ", active=" + active + ", originalPrice=" + originalPrice + ", discountPrice=" + discountPrice
-				+ ", description=" + description + ", categoryId=" + categoryId + ", createdOn=" + createdOn
-				+ ", updatedOn=" + updatedOn + "]";
+				+ ", views=" + views + ", image=" + image + ", active=" + active + ", originalPrice=" + originalPrice
+				+ ", discountPrice=" + discountPrice + ", description=" + description + ", categoryId=" + categoryId
+				+ ", createdOn=" + createdOn + ", updatedOn=" + updatedOn + "]";
 	}
 	
 }

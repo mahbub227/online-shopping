@@ -71,6 +71,12 @@
     <%@ include file="listProducts.jsp" %>
     </c:if>
     </div>
+    
+      <c:if test="${userClickShowProduct==true}">
+    <%@ include file="singleProduct.jsp" %>
+    </c:if>
+    </div>
+    
     <!-- /.container -->
 
     <!-- Footer -->

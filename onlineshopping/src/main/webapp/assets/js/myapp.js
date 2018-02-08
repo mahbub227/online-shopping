@@ -36,6 +36,17 @@ $(function(){
 				},
 				columns:[
 					{
+						data : 'image',
+						bSortable : false,
+						mRender : function(data, type, row) {
+
+							return '<img src="' + window.contextRoot
+									+ '/resources/images/' + data
+									+ '" class="dataTableImg"/>';
+
+						}
+					},
+					{
 						data: 'productName'
 					},
 					{
