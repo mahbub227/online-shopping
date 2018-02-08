@@ -31,11 +31,13 @@
     <link href="${css}/shop-homepage.css" rel="stylesheet">
     
     <!-- Bootstrap core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
     
      <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
      
-      <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+     <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
   
 
@@ -46,6 +48,7 @@
   <div class="wrapper">
 
     <!-- Navigation -->
+    <class="row">
     <%@ include file="./shared/navbar.jsp" %>
      
 

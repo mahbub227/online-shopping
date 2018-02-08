@@ -24,7 +24,7 @@ $(function(){
 				jsonUrl = window.contextRoot + '/json/data/all/products';
 			}
 			else{
-				jsonUrl = window.contextRoot + '/json/data/category' + window.categoryId + '/products';
+				jsonUrl = window.contextRoot + '/json/data/category/' + window.categoryId + '/products';
 			}
 			
 			$table.DataTable({
