@@ -17,4 +17,24 @@ public class GlobalDefaultExceptionController {
 		mv.addObject("title","404 Error Page");
 		return mv;
 	}
+	
+	@ExceptionHandler(ProductNotFoundException.class)
+	public ModelAndView handlerProductNotFoundFoundException() {
+		
+		ModelAndView mv = new ModelAndView("error");
+		mv.addObject("errorTitle","Product Not Found!");
+		mv.addObject("errorDescription","Sorry, we'll add the product soon!");
+		mv.addObject("title","Unavailable Product");
+		return mv;
+	}
+	
+	@ExceptionHandler(Exception.class)
+	public ModelAndView handlerException(Exception ex) {
+		
+		ModelAndView mv = new ModelAndView("error");
+		mv.addObject("errorTitle","Contact Administrator please!");
+		mv.addObject("errorDescription",ex.toString());
+		mv.addObject("title","Error");
+		return mv;
+	}
 }

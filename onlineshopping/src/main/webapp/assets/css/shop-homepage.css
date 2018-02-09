@@ -86,7 +86,7 @@ body {
   font-size: 12px;
   font-weight: 200;
   background-color: #2e353d;
-  position: fixed;
+  position: absolute;
   
   width: 250px;
  
