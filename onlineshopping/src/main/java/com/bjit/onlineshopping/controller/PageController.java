@@ -104,25 +104,5 @@ public class PageController {
 	}
 	
 	
-	/*@RequestMapping(value="/test")
-	public ModelAndView test(@RequestParam(value="greeting", required=false)String greeting)
-	{
-		if(greeting==null) {
-			greeting="Hello no greetig!";
-		}
-		ModelAndView mv= new ModelAndView("page");
-		mv.addObject("greeting",greeting);
-		return mv;
-	}
 	
-	@RequestMapping(value="/test/{greeting}")
-	public ModelAndView test(@PathVariable("greeting")String greeting)
-	{
-		if(greeting==null) {
-			greeting="Hello no greetig!";
-		}
-		ModelAndView mv= new ModelAndView("page");
-		mv.addObject("greeting",greeting);
-		return mv;
-	}*/
 }
