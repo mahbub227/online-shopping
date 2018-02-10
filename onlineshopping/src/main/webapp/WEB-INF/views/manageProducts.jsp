@@ -7,6 +7,10 @@
 	<div class="row">
 	<c:if test="${not empty message}">
 	<div class="col-xs-12">
+	<div class="alert alert-success alert-dismissable">
+	<button type="button" class="close" date-dismiss="alert">&times;</button>
+	${message}
+	</div> 
 	
 	</div>
 	</c:if>
@@ -72,8 +76,7 @@
 				<sf:hidden path="productId"/>
 				<sf:hidden path="views"/>
 				<sf:hidden path="active"/>
-				<sf:hidden path="createdOn"/>
-				<sf:hidden path="updatedOn"/>
+				<sf:hidden path="image"/>
 				</div>
 				</div>
 				
