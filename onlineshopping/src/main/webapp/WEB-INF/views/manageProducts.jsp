@@ -31,6 +31,7 @@
 				<label class="control-label col-md-4" for="productName">Product Name</label>
 				<div class="col-md-8">
 				<sf:input type="text" path="productName" id="productName" placeholder="Product Name" class="form-control"/>
+				<sf:errors path="productName" cssClass="help-block" element="em"/>
 				</div>
 				</div>
 				
@@ -59,6 +60,7 @@
 				<label class="control-label col-md-4" for="description">Description</label>
 				<div class="col-md-8">
 				<sf:textarea path="description" id="description" rows="4" placeholder="Description" class="form-control" />
+					<sf:errors path="description" cssClass="help-block" element="em"/>
 				</div>
 				</div>
 				

@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -18,6 +20,7 @@ public class Product implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
+	@NotBlank(message="Please Enter the Product Name!")
 	private String productName;
 	private int quantity;
 	private int views;
@@ -27,6 +30,7 @@ public class Product implements Serializable {
 	private double originalPrice;
 	private double discountPrice;
 	@JsonIgnore
+	@NotBlank(message="Please Enter the Description!")
 	private String description;
 	@JsonIgnore
 	private int categoryId;
