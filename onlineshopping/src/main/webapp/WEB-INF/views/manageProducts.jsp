@@ -25,7 +25,7 @@
 				</div>
 				
 				<div class="panel panel-body">
-				<sf:form class="form-horizontal" modelAttribute="product" action="${contextRoot}/manage/products" method="POST">
+				<sf:form class="form-horizontal" modelAttribute="product" action="${contextRoot}/manage/products" method="POST" enctype="multipart/form-data">
 				
 				<div class="form-group">
 				<label class="control-label col-md-4" for="productName">Product Name</label>
@@ -70,6 +70,14 @@
 								<sf:select path="categoryId" items="${categories}" itemLabel="categoryName" itemValue="categoryId" class="form-control"/>
 								</div>
 								</div>
+								
+								<div class="form-group">
+				<label class="control-label col-md-4" for="file">Description</label>
+				<div class="col-md-8">
+				<sf:input type="file" path="file" id="file" class="form-control" />
+				<sf:errors path="file" id="file" cssClass="help-block" elements="em"/>
+				</div>
+				</div>
 				
 				<div class="form-group">
 				<div class="col-md-offset-4 col-md-8">
@@ -78,7 +86,6 @@
 				<sf:hidden path="productId"/>
 				<sf:hidden path="views"/>
 				<sf:hidden path="active"/>
-				<sf:hidden path="image"/>
 				</div>
 				</div>
 				
@@ -94,4 +101,43 @@
 
 </div>
 </div>
+
+<div class="row">
+<div class="col-xs-12">
+<h3>Available Products</h3>
+<hr/>
+</div>
+<div class="col-xs-12">
+<div style="overflow:auto">
+
+<table id="adminProductsTable" class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Quantity</th>
+<th>Original Price</th>
+<th>Discount Price</th>
+<th>Active</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
 </div>

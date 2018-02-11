@@ -44,7 +44,7 @@ $(function(){
 
 							return '<img src="' + window.contextRoot
 									+ '/resources/images/' + data
-									+ '" class="dataTableImg"/>';
+									+ '.jpg'+'" class="dataTableImg"/>';
 
 						}
 					},

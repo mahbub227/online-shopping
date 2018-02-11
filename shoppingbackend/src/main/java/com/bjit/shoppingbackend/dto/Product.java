@@ -2,13 +2,16 @@ package com.bjit.shoppingbackend.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -39,6 +42,10 @@ public class Product implements Serializable {
 	@JsonIgnore
 	Date updatedOn = new Date();
 	
+	
+	
+	@Transient
+	private MultipartFile file;
 	
 	public int getViews() {
 		return views;
@@ -113,6 +120,19 @@ public class Product implements Serializable {
 	public void setUpdatedOn(Date updatedOn) {
 		this.updatedOn = updatedOn;
 	}
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	
+	public Product() {
+		this.image = "PRD"+UUID.randomUUID().toString().substring(26).toUpperCase();
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", quantity=" + quantity

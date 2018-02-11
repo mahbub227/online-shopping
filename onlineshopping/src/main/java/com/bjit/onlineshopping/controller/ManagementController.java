@@ -2,6 +2,7 @@ package com.bjit.onlineshopping.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bjit.onlineshopping.util.FileUploadUtility;
+import com.bjit.onlineshopping.validator.ProductValidator;
 import com.bjit.shoppingbackend.dao.CategoryDAO;
 import com.bjit.shoppingbackend.dao.ProductDAO;
 import com.bjit.shoppingbackend.dto.Category;
@@ -55,7 +58,10 @@ public class ManagementController {
 	
 	
 	@RequestMapping(value="/products",method=RequestMethod.POST)
-	public String handleProductSubmission(@Valid @ModelAttribute("product") Product product,BindingResult results, Model model) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product product,BindingResult results, Model model, HttpServletRequest request) {
+		
+		new ProductValidator().validate(product,results);
+		
 		
 		if(results.hasErrors()) {
 			model.addAttribute("userClickManageProducts", true);
@@ -66,6 +72,10 @@ public class ManagementController {
 		
 		logger.info(product.toString());
 		productDAO.add(product);
+		
+		if(!product.getFile().getOriginalFilename().equals("")) {
+			FileUploadUtility.uploadFile(request, product.getFile(),product.getImage());
+		}
 		
 		return "redirect:/manage/products?operation=product";
 	}
