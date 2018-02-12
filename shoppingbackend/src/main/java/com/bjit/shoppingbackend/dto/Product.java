@@ -28,14 +28,12 @@ public class Product implements Serializable {
 	private int quantity;
 	private int views;
 	private String image;
-	@JsonIgnore
 	private boolean active;
 	private double originalPrice;
 	private double discountPrice;
 	@JsonIgnore
 	@NotBlank(message="Please Enter the Description!")
 	private String description;
-	@JsonIgnore
 	private int categoryId;
 	@JsonIgnore
 	Date createdOn = new Date();

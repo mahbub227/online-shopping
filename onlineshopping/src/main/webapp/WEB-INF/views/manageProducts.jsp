@@ -68,6 +68,14 @@
 							<label class="control-label col-md-4">Category</label>
 							<div class="col-md-8">
 								<sf:select path="categoryId" items="${categories}" itemLabel="categoryName" itemValue="categoryId" class="form-control"/>
+								
+								<c:if test="${product.productId==0}">
+								<div class="text-right">
+								<br/>
+								<button type="button" data-toggle="modal" data-target="#myCategoryModal" class="btn btn-warning btn-sm">New Category</button>
+								</div>
+								</c:if>
+								
 								</div>
 								</div>
 								
@@ -84,6 +92,7 @@
 				<input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary"/>
 				
 				<sf:hidden path="productId"/>
+				<sf:hidden path="image"/>
 				<sf:hidden path="views"/>
 				<sf:hidden path="active"/>
 				</div>
@@ -115,16 +124,17 @@
 <tr>
 <th>ID</th>
 <th>Name</th>
+<th>Image</th>
 <th>Quantity</th>
 <th>Original Price</th>
 <th>Discount Price</th>
 <th>Active</th>
 <th>Edit</th>
-<th>Delete</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -140,4 +150,50 @@
 </div>
 </div>
 
+<div class="row">
+<div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1" >
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">
+<span>&times;</span>
+</button>
+<h4 class="modal-title">Add New Category</h4>
+</div>
+<div class="modal-body">
+
+ <sf:form id="categoryForm" class="form-horizontal" modelAttribute="category" action="${contextRoot}/manage/category" method="POST">
+	        	
+       			<div class="form-group">
+					<label class="control-label col-md-4">Category Name</label>
+					<div class="col-md-8 validate">
+						<sf:input type="text" path="categoryName" class="form-control"
+							placeholder="Category Name" /> 
+					</div>
+				</div>
+				
+				
+				<div class="form-group">
+							<label class="control-label col-md-4">Parent ID</label>
+							<div class="col-md-8">
+								<sf:select path="parentId" items="${categories}" itemLabel="categoryName" itemValue="categoryId" class="form-control"/>
+								
+								</div>
+								</div>
+				
+       			
+	        
+				<div class="form-group">				
+					<div class="col-md-offset-4 col-md-4">					
+						<input type="submit" name="submit" value="Save" class="btn btn-primary"/>						
+					</div>
+				</div>	        
+	        </sf:form>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
 </div>
