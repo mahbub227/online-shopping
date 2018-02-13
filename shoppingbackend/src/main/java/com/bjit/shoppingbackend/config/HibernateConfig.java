@@ -70,6 +70,7 @@ public class HibernateConfig {
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
 		properties.put("hibernate.connection.pool_size",10);
+		properties.put("hibernate.hbm2ddl.auto","update");
 		
 		//properties.put("hibernate.hbm2ddl.auto", "create");
 		

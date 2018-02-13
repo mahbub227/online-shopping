@@ -28,15 +28,8 @@ public class Users implements Serializable {
 	private String email;
 	private String password;
 	private String contactNo;
+	private String role;
 	private boolean status;
-	private String billingAddress;
-	private String billingCity;
-	private String billingZipCode;
-	private int billingCountry;
-	private String shippingAddress;
-	private String shippingCity;
-	private String shippingZipCode;
-	private int shippingCountry;
 	Date createdOn = new Date();
 	Date updatedOn = new Date();
 	public int getUserId() {
@@ -81,54 +74,6 @@ public class Users implements Serializable {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	public String getBillingAddress() {
-		return billingAddress;
-	}
-	public void setBillingAddress(String billingAddress) {
-		this.billingAddress = billingAddress;
-	}
-	public String getBillingCity() {
-		return billingCity;
-	}
-	public void setBillingCity(String billingCity) {
-		this.billingCity = billingCity;
-	}
-	public String getBillingZipCode() {
-		return billingZipCode;
-	}
-	public void setBillingZipCode(String billingZipCode) {
-		this.billingZipCode = billingZipCode;
-	}
-	public int getBillingCountry() {
-		return billingCountry;
-	}
-	public void setBillingCountry(int billingCountry) {
-		this.billingCountry = billingCountry;
-	}
-	public String getShippingAddress() {
-		return shippingAddress;
-	}
-	public void setShippingAddress(String shippingAddress) {
-		this.shippingAddress = shippingAddress;
-	}
-	public String getShippingCity() {
-		return shippingCity;
-	}
-	public void setShippingCity(String shippingCity) {
-		this.shippingCity = shippingCity;
-	}
-	public String getShippingZipCode() {
-		return shippingZipCode;
-	}
-	public void setShippingZipCode(String shippingZipCode) {
-		this.shippingZipCode = shippingZipCode;
-	}
-	public int getShippingCountry() {
-		return shippingCountry;
-	}
-	public void setShippingCountry(int shippingCountry) {
-		this.shippingCountry = shippingCountry;
-	}
 	public Date getCreatedOn() {
 		return createdOn;
 	}
@@ -142,17 +87,22 @@ public class Users implements Serializable {
 		this.updatedOn = updatedOn;
 	}
 	
-	
-	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	@Override
 	public String toString() {
 		return "Users [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", contactNo=" + contactNo + ", status=" + status + ", billingAddress="
-				+ billingAddress + ", billingCity=" + billingCity + ", billingZipCode=" + billingZipCode
-				+ ", billingCountry=" + billingCountry + ", shippingAddress=" + shippingAddress + ", shippingCity="
-				+ shippingCity + ", shippingZipCode=" + shippingZipCode + ", shippingCountry=" + shippingCountry
+				+ ", password=" + password + ", contactNo=" + contactNo + ", role=" + role + ", status=" + status
 				+ ", createdOn=" + createdOn + ", updatedOn=" + updatedOn + "]";
 	}
+	
+	
+	
+	
 	
 	
 	
