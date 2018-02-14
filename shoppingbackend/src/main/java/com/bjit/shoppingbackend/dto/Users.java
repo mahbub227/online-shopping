@@ -2,36 +2,58 @@ package com.bjit.shoppingbackend.dto;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
-
-import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.web.multipart.MultipartFile;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Users")
 public class Users implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="userId")
 	private int userId;
+	@Column(name="firstName")
 	private String firstName;
+	@Column(name="lastName")
 	private String lastName;
+	@Column(name="email")
 	private String email;
+	@Column(name="password")
 	private String password;
+	@Column(name="contactNo")
 	private String contactNo;
+	@Column(name="role")
 	private String role;
+	@Column(name="status")
 	private boolean status;
+	@Column(name="createdOn")
 	Date createdOn = new Date();
+	@Column(name="updatedOn")
 	Date updatedOn = new Date();
+	@OneToOne(mappedBy="users",cascade=CascadeType.ALL)
+	@JoinColumn(name="orderId")
+	private Orders orders;
+	
+	
+	
+	
+	public Orders getOrders() {
+		return orders;
+	}
+	public void setOrders(Orders orders) {
+		this.orders = orders;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -97,7 +119,7 @@ public class Users implements Serializable {
 	public String toString() {
 		return "Users [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", password=" + password + ", contactNo=" + contactNo + ", role=" + role + ", status=" + status
-				+ ", createdOn=" + createdOn + ", updatedOn=" + updatedOn + "]";
+				+ ", createdOn=" + createdOn + ", updatedOn=" + updatedOn + ", orders=" + orders + "]";
 	}
 	
 	

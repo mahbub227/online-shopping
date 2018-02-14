@@ -3,24 +3,40 @@ package com.bjit.shoppingbackend.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="Orders")
 public class Orders  implements Serializable {
 	
 private static final long serialVersionUID = 1L;
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int orderId; 	
-	private int userId;
-	private int vat;
-	private int shippingCost;
-	private boolean status;
-	Date createdOn = new Date();
-	Date updatedOn = new Date(); 
+	@Column(name="orderId")
+	private int orderId; 
 	
+	@Column(name="vat")
+	private int vat;
+	@Column(name="shippingCost")
+	private int shippingCost;
+	@Column(name="status")
+	private boolean status;
+	@Column(name="createdOn")
+	Date createdOn = new Date();
+	@Column(name="updatedOn")
+	Date updatedOn = new Date(); 
+	@OneToOne
+	@JoinColumn(name="userId")
+	private Users users;
 	
 	public int getOrderId() {
 		return orderId;
@@ -28,11 +44,12 @@ private static final long serialVersionUID = 1L;
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
-	public int getUserId() {
-		return userId;
+	
+	public Users getUsers() {
+		return users;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUsers(Users users) {
+		this.users = users;
 	}
 	public int getVat() {
 		return vat;
@@ -66,9 +83,10 @@ private static final long serialVersionUID = 1L;
 	}
 	@Override
 	public String toString() {
-		return "OrderProducts [orderId=" + orderId + ", userId=" + userId + ", vat=" + vat + ", shippingCost="
-				+ shippingCost + ", status=" + status + ", createdOn=" + createdOn + ", updatedOn=" + updatedOn + "]";
+		return "Orders [orderId=" + orderId + ", vat=" + vat + ", shippingCost=" + shippingCost + ", status=" + status
+				+ ", createdOn=" + createdOn + ", updatedOn=" + updatedOn + ", users=" + users + "]";
 	}
+
 	
 	
 }

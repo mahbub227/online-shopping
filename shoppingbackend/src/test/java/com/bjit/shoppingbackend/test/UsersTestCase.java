@@ -7,9 +7,8 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.bjit.shoppingbackend.dao.UserDAO;
-import com.bjit.shoppingbackend.dto.BillingInfo;
+import com.bjit.shoppingbackend.dto.Address;
 import com.bjit.shoppingbackend.dto.Orders;
-import com.bjit.shoppingbackend.dto.ShippingInfo;
 import com.bjit.shoppingbackend.dto.Users;
 
 public class UsersTestCase {
@@ -21,8 +20,7 @@ private static AnnotationConfigApplicationContext context;
 
 	
 	private Users users;
-	private ShippingInfo shippingInfo;
-	private BillingInfo billingInfo;
+	private Address address;
 	private Orders orders;
 	
 	
@@ -37,45 +35,54 @@ private static AnnotationConfigApplicationContext context;
 	@Test
 	public void testCRUDUsers() {
 		users = new Users();
-		users.setFirstName("Sadda");
-		users.setLastName("Alam");
-		users.setContactNo("017317326118");
+		users.setFirstName("Abu");
+		users.setLastName("Ubaidah");
+		users.setContactNo("017655555");
 		users.setStatus(true);
-		users.setEmail("saddam@bgo4sdfp.com");
+		users.setEmail("abuUba@gmail.com");
 		users.setPassword("user");
 		users.setRole("user");
 		
-		orders.setUserId(4);
+		//if(users.getRole().equals("user")) {
+		
+	    orders = new Orders();
+	    orders.setUsers(users);
+		orders.setShippingCost(1);
+		orders.setVat(1);
+		orders.setStatus(true);
+		users.setOrders(orders);
 		assertEquals("Something went wrong while inserting a new product!",
-				true,userDAO.addOrders(orders));
-		
-		assertEquals("Something went wrong while inserting a new product!",
-				true,userDAO.addUsers(users));		
-		
-		shippingInfo.setUserId(4);
-		shippingInfo.setShippingZipCode("1232C");
-		shippingInfo.setShippingAddress("Baridhara,Bangladesh");
-		shippingInfo.setShippingCountryId(2);
-		shippingInfo.setShippingCity("Dhaka");
-		
-		assertEquals("Something went wrong while inserting a new product!", 
-				true,userDAO.addShippingInfo(shippingInfo));		
-		
+				true,userDAO.addUsers(users));	
+			
+		address = new Address();
+		address.setAddress("101/B Jadoo Society, Krissh Nagar");
+		address.setCity("Mumbai");
+		address.setState("Maharashtra");
+		address.setCountry("India");
+		address.setPostalCode("400001");
+		address.setBilling(true);
 	
+			
+			assertEquals("Something went wrong while inserting a new product!", 
+					true,userDAO.addAddress(address));
+			
+			address = new Address();
+			address.setAddress("101/B Jadoo Society, Krissh Nagar");
+			address.setCity("Mumbai");
+			address.setState("Maharashtra");
+			address.setCountry("India");
+			address.setPostalCode("400001");
+			address.setShipping(true);
 		
-		if(users.getRole().equals("user")) {
-			billingInfo.setUserId(4);
-			billingInfo.setBillingZipCode("1232D");
-			billingInfo.setBillingAddress("Baridhara,Bangladesh");
-			billingInfo.setBillingCountryId(2);
-			billingInfo.setBillingCity("Dhaka");
+				
+				assertEquals("Something went wrong while inserting a new product!", 
+						true,userDAO.addAddress(address));
+		
 			
-			assertEquals("Something went wrong while inserting a new product!",
-					true,userDAO.addBillingInfo(billingInfo));		
+		
 			
-			orders.setUserId(4);
-			assertEquals("Something went wrong while inserting a new product!",
-					true,userDAO.addOrders(orders));
-		}
+		
+		
+	//	}
 }
 }
