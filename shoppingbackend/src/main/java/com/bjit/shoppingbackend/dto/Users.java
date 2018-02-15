@@ -36,7 +36,7 @@ public class Users implements Serializable {
 	@Column(name="role")
 	private String role;
 	@Column(name="status")
-	private boolean status;
+	private boolean status=true;
 	@Column(name="createdOn")
 	Date createdOn = new Date();
 	@Column(name="updatedOn")

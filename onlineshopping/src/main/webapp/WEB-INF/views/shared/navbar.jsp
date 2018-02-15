@@ -28,6 +28,14 @@
             </li>
             
           </ul>
+          <ul class="nav navbar-nav navbar-righ">
+           <li id="manageProducts" class="nav-item">
+              <a class="nav-link" href="${contextRoot}/register">Sign Up</a>
+            </li>
+             <li id="manageProducts" class="nav-item">
+              <a class="nav-link" href="${contextRoot}/login">Log In</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
